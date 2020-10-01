@@ -9,9 +9,18 @@ export default function App() {
     return "Stuck between a rock and a hard place..."
   }
 
+  function Header(props) {
+    return (
+      <header>
+        <p>{props.name}'s view from the top!</p>
+      </header>
+    )
+  }
+
   function Footer(props) {
     return (
       <footer>
+        <p>Greetings, {props.name}, from the footer of my page</p>
         <p>&copy 2020, vorSherer Creations</p>
       </footer>
     )
@@ -19,6 +28,7 @@ export default function App() {
 
   return (
     <>
+      <Header name="Ralph" />
       <div className="App">
         <h1>Hello, {username}!</h1>
         <h2>Proof of Life!</h2>
@@ -27,7 +37,7 @@ export default function App() {
       <aside>
         <h3>Just an aside here...</h3>
       </aside>
-      <Footer />
+      <Footer name="Earthling" />
     </>
   );
 }
