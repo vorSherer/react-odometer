@@ -2,44 +2,39 @@ import React from 'react';
 import './App.css';
 
 export default function App() {
-  // banner = 'Life Odometer - rough road ahead, your mileage may vary'
-  let username = "Bob"
-  
-  function getLocation() {
-    return "Stuck between a rock and a hard place..."
-  }    
-  
   
   // Header Component
   //   text value via props
-  function Header(props) {
-    return (
-      <header>
-        <p>{props.name}'s view from the top!</p>
-      </header>        
-    )
-  }    
+  class Header extends React.Component {
+    render() {
+      return (
+        <header>
+          <p>{this.props.name}'s view from the top!</p>
+        </header>        
+      );
+    }    
+  }
   
-
   // Footer Component
   //   trademark value via props
   {/* <p>&copy 2020, vorSherer Creations</p> */}
-  function Footer(props) {
-    return (
-      <footer>
-        <p>Greetings, {props.name}, from the footer of my page</p>
-        <p>&copy 2020, vorSherer Creations</p>
-      </footer>        
-    )
+  class Footer extends React.Component {
+    render() {
+      return (
+        <footer>
+          <p>Greetings, {this.props.name}, from the footer of my page</p>
+          <p>&copy 2020, vorSherer Creations</p>
+        </footer>        
+      );
+    }
   }    
 
   return (
     <>
       <Header name="Ralph" />
       <div className="App">
-        <h1>Hello, {username}!</h1>
+        <h1>Life Odometer - rough road ahead, your mileage may vary!</h1>
         <h2>Proof of Life!</h2>
-        <h3>{getLocation()}</h3>
       </div>
       <div>
         <MoodToday mood='Happy' />
@@ -72,22 +67,23 @@ export default function App() {
       super();
       this.state = {
         mood: 'neutral'
-      }
+      };
     }
     
     changeMood(change) {
-      this.setState({mood: 'Happy'}
-      )
+      this.setState({
+        mood: 'Happy'
+      });
     }
 
 
     render() {
       return (
-        <div>
+        <>
           <h3>Today is a... {this.state.mood} day.</h3>
-          <button onClick={() => this.changeMood(change: 'improve')}>Improve</button>
-          <button onClick={() => this.changeMood(change: 'reduce')}>Reduce</button>
-        </div>
+          <button onClick={() => this.changeMood('improve')}>Improve</button>
+          <button onClick={() => this.changeMood('reduce')}>Reduce</button>
+        </>
       )
     };
   }
