@@ -1,13 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
 export default function App() {
   // banner = 'Life Odometer - rough road ahead, your mileage may vary'
+  let username = "Bob"
+
+  function getLocation() {
+    return "Stuck between a rock and a hard place..."
+  }
+
+  function Footer(props) {
+    return (
+      <footer>
+        <p>&copy 2020, vorSherer Creations</p>
+      </footer>
+    )
+  }
 
   return (
     <>
       <div className="App">
+        <h1>Hello, {username}!</h1>
+        <h2>Proof of Life!</h2>
+        <h3>{getLocation()}</h3>
       </div>
+      <aside>
+        <h3>Just an aside here...</h3>
+      </aside>
+      <Footer />
     </>
   );
 }
