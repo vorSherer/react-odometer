@@ -1,3 +1,26 @@
+# Lab 37 - React Odometer
+
+### *Author: Thomas Sherer*, 2020-09-30
+
+---
+
+## Description
+### Feature Tasks and Requirements
+- Display an odometer with 4 digits
+    - Pad with zeroes as needed (e.g. 0045)
+        - JavaScript has a method for this. Research as needed. <br>
+- Add buttons to increment the “miles” by 1, 10, 100 and 1000.
+    - Roll over when odometer value exceeds 9999
+    - Maintain any “extra” amount when rolling over. <br>
+- The root __`App`__ component should contain __`Odometer`__,__`Header`__ and __`Footer`__ components.
+    - You decide when appropriate to use class based or functional components.
+    - __`Header`__ component should receive a __`text`__ value via props.
+    - __`Footer`__ component should receive a __`trademark`__ value via props.
+    - __`Odometer`__ component should store numeric value in it’s state.
+        - Remember to update state in the React way.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
