@@ -19,7 +19,6 @@ class Odometer extends React.Component {
       let newOdoValue = odoDisplay + change
 
       // Prevent rolling odometer backwards
-      console.log('Display = ', odoDisplay)
       if (newOdoValue < 0) {
         newOdoValue = 0
       }

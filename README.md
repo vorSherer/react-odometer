@@ -26,6 +26,10 @@
 Huge Shoutouts to __Skyler Burger__, __Brai Frauen__ and __Merry Cimakasky__ for helping me dig out of the holes I dug myself into!
 
 <br>
+
+String.prototype.padStart code from [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) <br>
+
+<br>
 Stock Create-React-App .gitignore content supplemented with content from [gitignore.io](https://www.toptal.com/developers/gitignore/api/react)
 
 
