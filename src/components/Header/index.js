@@ -1,7 +1,5 @@
 import React from 'react';
 
-// Header Component
-//   text value via props
 class Header extends React.Component {
     render() {
         return (

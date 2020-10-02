@@ -1,7 +1,5 @@
 import React from 'react';
 
-// Footer Component
-//   trademark value via props
 class Footer extends React.Component {
     render() {
         return (
