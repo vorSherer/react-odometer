@@ -21,6 +21,11 @@
 
 ---
 
+## Collaborations and Attributions
+
+Stock Create-React-App .gitignore content supplemented with content from [gitignore.io](https://www.toptal.com/developers/gitignore/api/react)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
