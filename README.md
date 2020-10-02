@@ -23,6 +23,9 @@
 
 ## Collaborations and Attributions
 
+Huge Shoutouts to __Skyler Burger__, __Brai Frauen__ and __Merry Cimakasky__ for helping me dig out of the holes I dug myself into!
+
+<br>
 Stock Create-React-App .gitignore content supplemented with content from [gitignore.io](https://www.toptal.com/developers/gitignore/api/react)
 
 
