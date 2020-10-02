@@ -1,90 +1,97 @@
 import React from 'react';
 import './App.css';
 
-export default function App() {
-  
-  // Header Component
-  //   text value via props
-  class Header extends React.Component {
-    render() {
-      return (
-        <header>
-          <p>{this.props.name}'s view from the top!</p>
-        </header>        
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <div className="App">
+          <h1>Life Odometer - rough road ahead, your mileage may vary!</h1>
+          <Header text="Click buttons to update the odometer" />
+          <Odometer />
+        </div>
+        <Footer trademark="&#169; 2020, vorSherer Creations" />
+      </>
+    )
+  }
+}
+
+// Header Component
+//   text value via props
+class Header extends React.Component {
+  render() {
+    return (
+      <header>
+        <h2>{this.props.text}</h2>
+      </header>        
       );
     }    
   }
   
-  // Footer Component
-  //   trademark value via props
-  {/* <p>&copy 2020, vorSherer Creations</p> */}
-  class Footer extends React.Component {
-    render() {
-      return (
-        <footer>
-          <p>Greetings, {this.props.name}, from the footer of my page</p>
-          <p>&copy 2020, vorSherer Creations</p>
-        </footer>        
+// Footer Component
+//   trademark value via props
+class Footer extends React.Component {
+  render() {
+    return (
+      <footer>
+          <h4>{this.props.trademark}</h4>
+        </footer>            
       );
-    }
-  }    
-
-  return (
-    <>
-      <Header name="Ralph" />
-      <div className="App">
-        <h1>Life Odometer - rough road ahead, your mileage may vary!</h1>
-        <h2>Proof of Life!</h2>
-      </div>
-      <div>
-        <MoodToday mood='Happy' />
-      </div>
-      <aside>
-        <h3>Just an aside here...</h3>
-      </aside>
-      <Footer name="Earthling" />
-    </>        
-  );
-}    
-
-// Odometer Component
-
-// format - 4 digits, leading zeroes required
-// format d
-
-// button - incr odo by 1
-// button - incr odo by 10
-// button - incr odo by 100
-// button - incr odo by 1000
-
-// if odo > 9999, then odo -= 10000
-
-// Update state in a "React Way"
-
-  class MoodToday extends React.Component {
-
+    }  
+  }  
+  
+  class Odometer extends React.Component {
+    // Update state in a "React Way"
+    
     constructor() {
       super();
       this.state = {
-        mood: 'neutral'
+        odometerValue: 0
       };
     }
     
-    changeMood(change) {
+    formatOdometerDisplay() {
+      const odoDisplay = this.state.odometerValue
+      // format - 4 digits, leading zeroes required
+      // format d
+      return odoDisplay.toString().padStart(4, '0');
+    }
+    
+    incrementOdo(change) {
+      let odoDisplay = this.state.odometerValue
+      let newOdoValue = odoDisplay + change
+      // Prevent rolling odometer backwards
+      if (odoDisplay < 0) {
+        odoDisplay = 0
+      }
+      
+      // rolloverHandler
+      console.log('Going in ', newOdoValue)
+
+      if (newOdoValue > 9999) {
+        console.log('Got this far ', newOdoValue)
+        newOdoValue = newOdoValue - 10000
+      }
+      
+      // Do the math here, above setState
       this.setState({
-        mood: 'Happy'
+        odometerValue: newOdoValue
       });
     }
-
-
+    
     render() {
       return (
         <>
-          <h3>Today is a... {this.state.mood} day.</h3>
-          <button onClick={() => this.changeMood('improve')}>Improve</button>
-          <button onClick={() => this.changeMood('reduce')}>Reduce</button>
-        </>
-      )
+          <div>
+          <h1>Odometer value reads: {this.formatOdometerDisplay()}</h1>
+          <button onClick={() => this.incrementOdo(1)}>+1</button>
+          <button onClick={() => this.incrementOdo(10)}>+10</button>
+          <button onClick={() => this.incrementOdo(100)}>+100</button>
+          <button onClick={() => this.incrementOdo(1000)}>+1000</button>
+          </div>
+        </>            
+      );
     };
   }
 
+export default App;
