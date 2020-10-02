@@ -1,7 +1,6 @@
 import React from 'react';
 
 class Odometer extends React.Component {
-    // Update state in a "React Way"
     
     constructor() {
       super();
@@ -12,14 +11,13 @@ class Odometer extends React.Component {
     
     formatOdometerDisplay() {
       const odoDisplay = this.state.odometerValue
-      // format - 4 digits, leading zeroes required
-      // format d
       return odoDisplay.toString().padStart(4, '0');
     }
     
     updateOdo(change) {
       let odoDisplay = this.state.odometerValue
       let newOdoValue = odoDisplay + change
+
       // Prevent rolling odometer backwards
       console.log('Display = ', odoDisplay)
       if (newOdoValue < 0) {
@@ -31,7 +29,6 @@ class Odometer extends React.Component {
         newOdoValue = newOdoValue - 10000
       }
       
-      // Do the math here, above setState
       this.setState({
         odometerValue: newOdoValue
       });
